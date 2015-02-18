@@ -1,0 +1,337 @@
+//My drawing Program 02/28/13
+//Interactive Math SFAI
+//Instructor: Nick Lally
+
+  boolean clickCount0 = false;  // color swatch clickers
+  boolean clickCount1 = false;
+  boolean clickCount2 = false;
+  boolean clickCount3 = false;
+  boolean clickCount4 = false;
+  boolean clickCount5 = false;
+  boolean clickCount6 = false;
+  boolean clickCount7 = false;
+  boolean clickCount8 = false;
+  
+  float tipX;        //expanding and contracting tip
+  float tipY;
+  float xR;   
+  float xB;
+  float xG;
+
+                                      // setup color pallete
+  color black = color(0,0,0);        //Gray tones
+  color gray = color(155,155,155);   
+  color white= color(255,255,255);
+  
+  color red = color(255,0,0);                                 // colors
+  color yellow= color(255,255,0);
+  color orange = color(255,125,25);
+  color green= color(0,255,0);
+  color blue = color(0,0,255);
+  color magenta = color(255,0,255);
+ // float rainbow = (random(255),random(255),random(255));
+ 
+  
+void setup(){
+  size(1200,1200);
+  smooth();
+  frameRate(1000);              //slowed down framerate to get pure color drops
+  background(0);
+  noCursor();
+  tipX = 20;
+  tipY = 20;
+
+  
+}
+void draw(){
+
+  
+    println(xR);
+    
+        if (mouseX > 1020){
+          cursor(HAND);
+        }else{
+          cursor(ARROW);
+        }
+    
+       fill (color(gray));        //Control Bar
+       rect (1000,0,200,1200);
+    
+       fill(0);                  //black selector
+       stroke(1);
+       rect (1050,100,100,25);
+       
+       
+       fill(color(red));          //Red selector
+       stroke(1);
+       rect (1050,150,100,25);
+       
+     
+       fill(color(orange));        // orange selector
+       stroke(1);
+       rect (1050,200,100,25);
+       
+        fill(color(yellow));        // yellow selector
+       stroke(1);
+       rect (1050,250,100,25);
+       
+       fill(color(green));        // green selector
+       stroke(1);
+       rect (1050,300,100,25);
+       
+       fill(color(blue));        // blue selector
+       stroke(1);
+       rect (1050,350,100,25);
+       
+       fill(color(magenta));        // Magenta selector
+       stroke(1);
+       rect (1050,400,100,25);
+       
+       fill(color(white));        // white selector
+       stroke(1);
+       rect (1050,50,100,25);
+       
+       fill(color(gray));        // rainbow selector
+       stroke(1);
+       rect (1050,450,100,25);
+    
+        fill(255);
+        PFont font;                        //text of instructions
+        font = loadFont("ArialNarrow-Bold-8.vlw");
+        
+        textFont(font, 32);
+        text("Color Palette", 1020, 40);
+        
+        textFont(font, 20);
+        text("RAINBOW", 1062, 470);
+        
+        textFont(font, 20);
+        text("click on palette to", 1010, 500);
+        
+        textFont(font, 20);
+        text("select color mode", 1010, 520);
+        
+        textFont(font, 20);
+        text("'b' white background", 1010, 550);
+         
+        textFont(font, 20);
+        text("',' minimize tip", 1010, 575);
+        
+        textFont(font, 20);
+        text("'.' maximize tip", 1010, 600);
+        
+        textFont(font, 20);
+        text("'n' stretch tip vertical", 1010, 625);
+        
+        textFont(font, 20);
+        text("'m' stretch tip horizontal", 1010, 650);
+        
+        textFont(font, 20);
+        text("spacebar key to clear", 1010, 675);
+        
+        
+        
+        noStroke();              //to get rid of stoke from boxes and before painting
+
+ 
+  if(clickCount0 == true && mousePressed == true){  // Black tip
+  fill(color(black));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  
+  if(clickCount1 == true && mousePressed == true){ // red tip
+  fill(color(red));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  
+  if(clickCount2 == true && mousePressed == true){ // orange tip
+  fill(color(orange));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  if(clickCount3 == true && mousePressed == true){ // yellow tip
+  fill(color(yellow));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  if(clickCount4 == true && mousePressed == true){ // green tip
+  fill(color(green));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  if(clickCount5 == true && mousePressed == true){ // blue tip
+  fill(color(blue));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  if(clickCount6 == true && mousePressed == true){ // magenta tip
+  fill(color(magenta));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  if(clickCount7 == true && mousePressed == true){ // white tip
+  fill(color(white));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  }
+  if(clickCount8 == true && mousePressed == true){ // rainbow tip
+  fill(random(255),random(255),random(255));
+  ellipse(mouseX,mouseY,tipX,tipY);
+  }else{
+  } 
+}
+
+ 
+
+void keyPressed(){
+       if(key == ','){      //reduces size of tip
+         tipX --;
+         tipY --;
+       }
+       if(key == '.'){      //enlarges size of tip
+         tipX ++;
+         tipY ++;
+       }
+       if(key == 'n'){      //horzonal stretch of tip
+         tipX--;
+         tipY++;
+       }
+       if(key == 'm'){     //vertical stretch of tip
+         tipX++;
+         tipY--;
+       }
+       if(key == ' '){      //resets Background
+       background(0);
+       }
+       if(key == 'b'){    //turns background black
+       background(255);
+       }
+    }
+
+
+void mouseReleased(){
+  
+  if (mouseX > 1050 && mouseX < 1200 && mouseY > 100 && mouseY < 125){
+      clickCount0 = true;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+   if (mouseX > 1050 && mouseX < 1200 && mouseY > 150 && mouseY < 175){
+      clickCount0 = false;
+      clickCount1 = true;
+      clickCount2 = false;
+      clickCount3 = false;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+   if (mouseX > 1050 && mouseX < 1200 && mouseY > 200 && mouseY < 225){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = true;
+      clickCount3 = false;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+  if (mouseX > 1050 && mouseX < 1200 && mouseY > 250 && mouseY < 300){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount3 = true;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+  
+   if (mouseX > 1050 && mouseX < 1200 && mouseY > 300 && mouseY < 350){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount3 = false;
+      clickCount4 = true;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+    if (mouseX > 1050 && mouseX < 1200 && mouseY > 350 && mouseY < 400){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount3 = false;
+      clickCount4 = false;
+      clickCount5 = true;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+   if (mouseX > 1050 && mouseX < 1200 && mouseY > 400 && mouseY < 450){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount3 = false;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = true;
+      clickCount7 = false;
+      clickCount8 = false;
+      }else{
+       
+  }
+   if (mouseX > 1050 && mouseX < 1200 && mouseY > 50 && mouseY < 75){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount3 = false;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = true;
+      clickCount8 = false;
+      }else{
+       
+  }
+   if (mouseX > 1050 && mouseX < 1200 && mouseY > 450 && mouseY < 500){
+      clickCount0 = false;
+      clickCount1 = false;
+      clickCount2 = false;
+      clickCount3 = false;
+      clickCount4 = false;
+      clickCount5 = false;
+      clickCount6 = false;
+      clickCount7 = false;
+      clickCount8 = true;
+      }else{
+       
+  }
+}
+
+
+  
+  
