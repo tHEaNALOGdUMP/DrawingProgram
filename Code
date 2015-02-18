@@ -1,6 +1,5 @@
 //My drawing Program 02/28/13
-//Interactive Math SFAI
-//Instructor: Nick Lally
+
 
   boolean clickCount0 = false;  // color swatch clickers
   boolean clickCount1 = false;
